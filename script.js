@@ -8,12 +8,36 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
     }
 });
 
-// * Salvar o tema selecionado no localStorage quando a página for carregada:
+let contas = [];
+
+// * Salvar info quando a página for carregada:
 document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
-    } else {
-        document.body.classList.remove('dark-mode');
+    }
+
+    // --- Lógica para carregar as contas salvas ---
+    const contasSalvas = JSON.parse(localStorage.getItem('contas'));
+
+    if (contasSalvas) {
+        const listaContas = document.getElementById('listaContas');
+        const total = document.getElementById('total');
+        const resultContainer = document.querySelector('.result');
+
+        contasSalvas.forEach(conta => {
+            const itemLista = document.createElement('li');
+            itemLista.innerHTML = `${conta.descricao} <span>- R$: ${conta.valor.toFixed(2)}</span>`;
+            listaContas.appendChild(itemLista);
+        });
+
+        contas = contasSalvas;
+        numContas = contas.length;
+        valorTotal = contas.reduce((acc, conta) => acc + conta.valor, 0);
+        total.textContent = numContas + " Conta(s) - Total R$: " + valorTotal.toFixed(2);
+        
+        if(numContas > 0) {
+            resultContainer.classList.add('active');
+        }
     }
 });
 
@@ -21,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 let numContas = 0;
 let valorTotal = 0;
 
-function registerBills (){
+function registrarContas (){
     const descricaoConta = document.getElementById('descricaoConta');
     const valorConta = document.getElementById('valorConta');
     const listaContas = document.getElementById('listaContas');
@@ -47,10 +71,33 @@ function registerBills (){
     valorTotal = valorTotal + valor;
     total.textContent = numContas + " Conta(s) - Total R$: " + valorTotal.toFixed(2);
 
+    // --- NOVO: Apenas adicionamos a lógica de salvar no final ---
+    contas.push({ descricao: conta, valor: valor });
+    localStorage.setItem('contas', JSON.stringify(contas));
+
     descricaoConta.value = '';
     valorConta.value = '';
     descricaoConta.focus();
 }
 
 const btnAdd = document.getElementById('add-button');
-btnAdd.addEventListener('click', registerBills);
+btnAdd.addEventListener('click', registrarContas);
+
+// * limpar a lista de contas
+function limparCampos() {
+    const listaContas = document.getElementById('listaContas');
+    const total = document.getElementById('total');
+    const resultContainer = document.querySelector('.result');
+
+    listaContas.innerHTML = '';
+    numContas = 0;
+    valorTotal = 0;
+    resultContainer.classList.remove('active');
+    console.log('campos limpos');
+
+    // --- NOVO: Apenas adicionamos a lógica para salvar a limpeza ---
+    contas = [];
+    localStorage.setItem('contas', JSON.stringify(contas));
+}
+const btnClear = document.getElementById('clear-button');
+btnClear.addEventListener('click', limparCampos);

@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dark Mode Switch</title>
+    <title>Contas e Despesas</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <header>
-      <h1>Bills and Expenses</h1>
+      <h1>Contas e Despesas</h1>
       <button id="theme-toggle">
         <svg
           width="30px"
@@ -27,14 +27,14 @@
     </header>
     <main>
       <div id="inputs">
-        <p>Description:</p>
-        <input type="text" id="descricaoConta" placeholder="Enter bill or expense" />
+        <p>Descrição:</p>
+        <input type="text" id="descricaoConta" placeholder="Insira a conta ou despesa" />
 
-        <p>Amount:</p>
-        <input type="number" id="valorConta" placeholder="$" />
+        <p>Valor:</p>
+        <input type="number" id="valorConta" placeholder="R$" />
       </div>
-      <button id="add-button">Add</button>
-      <button style="margin-top: 20px;" id="clear-button">Clear</button>
+      <button id="add-button">Adicionar</button>
+      <button style="margin-top: 20px;" id="clear-button">Limpar</button>
 
       <div class="result">
         <ul id="listaContas"></ul>

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         contasSalvas.forEach(conta => {
             const itemLista = document.createElement('li');
-            itemLista.innerHTML = `${conta.descricao} <span>- R$: ${conta.valor.toFixed(2)}</span>`;
+            itemLista.innerHTML = `<span style="color:#2f9147">${conta.descricao}</span> <span>- R$: ${conta.valor.toFixed(2)}</span>`;
             listaContas.appendChild(itemLista);
         });
 
@@ -63,7 +63,7 @@ function registrarContas (){
     resultContainer.classList.add('active');
 
     const itemLista = document.createElement('li');
-    itemLista.innerHTML = `${conta} <span>- R$: ${valor.toFixed(2)}</span>`;
+    itemLista.innerHTML = `<span style="color:#2f9147">${conta}</span> <span>- R$: ${valor.toFixed(2)}</span>`;
 
     listaContas.appendChild(itemLista);
 
@@ -71,7 +71,6 @@ function registrarContas (){
     valorTotal = valorTotal + valor;
     total.textContent = numContas + " Conta(s) - Total R$: " + valorTotal.toFixed(2);
 
-    // --- NOVO: Apenas adicionamos a lógica de salvar no final ---
     contas.push({ descricao: conta, valor: valor });
     localStorage.setItem('contas', JSON.stringify(contas));
 
@@ -95,7 +94,6 @@ function limparCampos() {
     resultContainer.classList.remove('active');
     console.log('campos limpos');
 
-    // --- NOVO: Apenas adicionamos a lógica para salvar a limpeza ---
     contas = [];
     localStorage.setItem('contas', JSON.stringify(contas));
 }

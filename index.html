@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contas e Despesas</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
   </head>
 
   <body>
@@ -28,13 +32,17 @@
     <main>
       <div id="inputs">
         <p>Descrição:</p>
-        <input type="text" id="descricaoConta" placeholder="Insira a conta ou despesa" />
+        <input
+          type="text"
+          id="descricaoConta"
+          placeholder="Insira a conta ou despesa"
+        />
 
         <p>Valor:</p>
         <input type="number" id="valorConta" placeholder="R$" />
       </div>
       <button id="add-button">Adicionar</button>
-      <button style="margin-top: 20px;" id="clear-button">Limpar</button>
+      <button style="margin-top: 20px" id="clear-button">Limpar</button>
 
       <div class="result">
         <ul id="listaContas"></ul>

@@ -1,53 +1,53 @@
 /* Light Mode Styles */
 body {
-    background-color: white;
-    color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 30px;
+  background-color: white;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 30px;
 }
 input {
-    background-color: white;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
 }
 #add-button {
-    background-color: #2f9147;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 300px;
+  background-color: #2f9147;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
 }
 #clear-button {
-    background-color: rgb(252, 86, 86);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 300px;
+  background-color: rgb(252, 86, 86);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
 }
 
 .result {
   visibility: hidden;
-  opacity: 0;  
-  transition: opacity 0.4s ease, visibility 0.4s ease; 
+  opacity: 0;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 .result.active {
   visibility: visible;
@@ -55,133 +55,151 @@ input {
 }
 
 h1 {
-    border-bottom: 1px solid #ccc;
-    max-width: 50%;
-    text-align: center;
-    margin: 20px auto;
+  font-family: "Roboto", sans-serif; /* Adicione o import do Google Fonts no seu HTML/CSS */
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 40px auto 30px;
+  position: relative;
+  padding-bottom: 15px;
+  border-bottom: none;
+  max-width: 50%;
 }
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #28a745;
+  border-radius: 2px;
+}
+
 #inputs {
-    margin: 10px auto;
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  margin: 10px auto;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 #inputs p {
-    margin: 0;
-    margin-bottom: 5px;
+  margin: 0;
+  margin-bottom: 5px;
 }
 
 #inputs input {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #theme-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    padding: 10px;
-    border: none;
-    background: none;
-    cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
-.result #listaContas{
-    text-align: center;
-    margin-top: 50px;
+.result #listaContas {
+  text-align: center;
+  margin-top: 50px;
 }
 
-.result #total{
-    background-color: #a5cfaf;
-    border: 3px solid #333;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 20px;
-    max-width: 300px;
-    margin: 0 auto;
+.result #total {
+  background-color: #a5cfaf;
+  border: 3px solid #333;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
-li{
-    margin: 0 auto;
-    margin-bottom: 10px;
-    max-width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+li {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 #totalTitle {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-top: 40px;
-    text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 40px;
+  text-align: center;
 }
 /* Dark Mode Styles */
 body.dark-mode {
-    background-color: #333;
-    color: white;
-    padding: 30px;
+  background-color: #333;
+  color: white;
+  padding: 30px;
 }
 
-body.dark-mode input{
-    background-color: #333;
-    color: white;
-    border: 1px solid white;
-    padding: 10px;
-    border-radius: 5px;
+body.dark-mode input {
+  background-color: #333;
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-body.dark-mode button{
-    background-color: #2f9147;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+body.dark-mode button {
+  background-color: #2f9147;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #theme-toggle svg {
-  fill: #000000; 
+  fill: #000000;
 }
 body.dark-mode #theme-toggle svg {
   fill: #ffffff;
 }
 
 body.dark-mode #listaContas {
-    text-align: center;
-    margin-top: 50px;
+  text-align: center;
+  margin-top: 50px;
 }
 
 body.dark-mode #total {
-    text-align: center;
-    margin-top: 20px;
-    background-color: #2f5740;
-    border: 3px solid #7b7265;
-    color: #ffffff;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #2f5740;
+  border: 3px solid #7b7265;
+  color: #ffffff;
 }
 body.dark-mode ul li {
-    background-color: #444;
-    color: white;
-    border: 1px solid #666;
+  background-color: #444;
+  color: white;
+  border: 1px solid #666;
 }
 
 #listaContas li {
   display: flex;
   justify-content: space-between;
-  
+
   align-items: center;
 }
 
 .btn-excluir-item {
   width: 25px;
   height: 25px;
-  padding: 0; 
+  padding: 0;
   font-size: 16px;
   background-color: #d9534f;
   color: white;
@@ -196,8 +214,8 @@ body.dark-mode ul li {
 }
 
 body.dark-mode .btn-excluir-item {
-    padding: 0;
-    background-color: #d9534f;
+  padding: 0;
+  background-color: #d9534f;
 }
 
 .btn-excluir-item:hover {

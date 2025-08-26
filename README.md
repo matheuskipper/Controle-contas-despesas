@@ -1,0 +1,2 @@
+# Contas e Despesas
+Uma ferramenta simples e intuitiva para gerenciar suas finanças pessoais. Adicione e visualize suas contas e despesas diárias de forma fácil, mantendo um controle total sobre seus gastos.

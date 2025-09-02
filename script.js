@@ -9,6 +9,13 @@ document.getElementById("theme-toggle").addEventListener("click", function () {
 });
 
 let contas = [];
+let salario = 0;
+const salarioInput = document.getElementById('salarioInput');
+salarioInput.addEventListener('input', () => {
+  salario = Number(salarioInput.value) || 0;
+  localStorage.setItem('salario', salario);
+  atualizarTotal();
+});
 
 
 // * Salvar info quando a página for carregada:
@@ -17,7 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.add("dark-mode");
   }
 
-
+  const salarioSalvo = Number(localStorage.getItem('salario')) || 0;
+  if (salarioSalvo) {
+    salario = salarioSalvo;
+    salarioInput.value = salarioSalvo;
+  }
+  atualizarTotal();
   // --- Lógica para carregar as contas salvas ---
   const contasSalvas = JSON.parse(localStorage.getItem("contas"));
 
@@ -55,8 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     contas = contasSalvas;
     numContas = contas.length;
     valorTotal = contas.reduce((acc, conta) => acc + conta.valor, 0);
-    total.textContent =
-      numContas + " Conta(s) - Total R$: " + valorTotal.toFixed(2);
+    atualizarTotal();
 
     if (numContas > 0) {
       resultContainer.classList.add("active");
@@ -95,8 +106,7 @@ function registrarContas() {
 
   numContas++;
   valorTotal = valorTotal + valor;
-  total.textContent =
-    numContas + " Conta(s) - Total R$: " + valorTotal.toFixed(2);
+  atualizarTotal();
 
   contas.push({ descricao: conta, valor: valor });
   localStorage.setItem("contas", JSON.stringify(contas));
@@ -161,10 +171,42 @@ function excluirConta(indexParaExcluir, itemListaParaRemover) {
   numContas--;
   valorTotal = valorTotal - valorExcluido;
   const total = document.getElementById("total");
-  total.textContent =
-    numContas + " Conta(s) - Total R$: " + valorTotal.toFixed(2);
+  atualizarTotal();
 
   if (numContas === 0) {
     document.querySelector(".result").classList.remove("active");
+  }
+}
+
+// * Lógica para o toggle de salário
+const salarioToggleSim = document.getElementById('salario-toggle-sim');
+const salarioToggleNao = document.getElementById('salario-toggle-nao');
+const salarioInputContainer = document.getElementById('salario-input-container');
+
+salarioToggleSim.addEventListener('click', () => {
+  salarioInputContainer.style.display = 'block';
+  salarioToggleSim.classList.add('active');
+  salarioToggleNao.classList.remove('active');
+});
+
+salarioToggleNao.addEventListener('click', () => {
+  salarioInputContainer.style.display = 'none';
+  salarioToggleSim.classList.remove('active');
+  salarioToggleNao.classList.add('active');
+});
+
+function atualizarTotal() {
+  const total = document.getElementById("total");
+  let saldo = salario - valorTotal;
+  if (salario > 0) {
+    total.textContent =
+      numContas +
+      " Conta(s) - Total R$: " +
+      valorTotal.toFixed(2) +
+      " | Saldo: R$ " +
+      saldo.toFixed(2);
+  } else {
+    total.textContent =
+      numContas + " Conta(s) - Total R$: " + valorTotal.toFixed(2);
   }
 }

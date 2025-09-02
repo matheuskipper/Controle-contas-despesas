@@ -1,10 +1,17 @@
-/* Light Mode Styles */
+/*! Light Mode Styles */
 body {
   background-color: white;
   color: #333;
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 30px;
+}
+
+header {
+  background-color: #cfeed7;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 input {
   background-color: white;
@@ -23,8 +30,8 @@ input {
   margin-top: 20px;
   justify-content: center;
   display: flex;
-  align-items: center;
-  margin: 0 auto;
+  /* align-items: center;
+  margin: 0 auto; */
   width: 100%;
   max-width: 300px;
 }
@@ -38,8 +45,8 @@ input {
   margin-top: 20px;
   justify-content: center;
   display: flex;
-  align-items: center;
-  margin: 0 auto;
+  /* align-items: center;
+  margin: 0 auto; */
   width: 100%;
   max-width: 300px;
 }
@@ -58,31 +65,19 @@ h1 {
   font-family: "Roboto", sans-serif; /* Adicione o import do Google Fonts no seu HTML/CSS */
   font-weight: 400;
   letter-spacing: 1px;
-  text-align: center;
-  margin: 40px auto 30px;
+  /* text-align: center; */
+  /* margin: 40px auto 30px; */
   position: relative;
   padding-bottom: 15px;
   border-bottom: none;
-  max-width: 50%;
-}
-
-h1::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background-color: #28a745;
-  border-radius: 2px;
+  /* max-width: 50%; */
 }
 
 #inputs {
-  margin: 10px auto;
+  /* margin: 10px auto; */
   max-width: 300px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 5px;
 }
 
@@ -92,17 +87,37 @@ h1::after {
 }
 
 #inputs input {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 #theme-toggle {
-  position: fixed;
+  /* position: fixed; */
   top: 10px;
   right: 10px;
   padding: 10px;
   border: none;
   background: none;
   cursor: pointer;
+}
+
+.toggle-btn {
+  background-color: #eee;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.2s;
+}
+.toggle-btn.active {
+  background-color: #2f9147;
+  color: #fff;
+  border: 1px solid #2f9147;
+}
+
+#salario-toggle-container{
+  margin-bottom: 10px;
 }
 
 .result #listaContas {
@@ -118,7 +133,7 @@ h1::after {
   text-align: center;
   margin-top: 20px;
   max-width: 300px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 ul {
@@ -126,7 +141,7 @@ ul {
   padding: 0;
 }
 li {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   margin-bottom: 10px;
   max-width: 300px;
   padding: 10px;
@@ -138,13 +153,18 @@ li {
   font-weight: bold;
   font-size: 1.2em;
   margin-top: 40px;
-  text-align: center;
+  /* text-align: center; */
 }
-/* Dark Mode Styles */
+
+
+/*! Dark Mode Styles */
 body.dark-mode {
   background-color: #333;
   color: white;
-  padding: 30px;
+}
+
+body.dark-mode header {
+  background-color: #5a7e63;
 }
 
 body.dark-mode input {
@@ -224,4 +244,26 @@ body.dark-mode .btn-excluir-item {
 
 body.dark-mode .btn-excluir-item:hover {
   background-color: #c9302c;
+}
+
+
+@media (max-width: 600px) {
+  header, #inputs, #add-button, #clear-button, #total {
+    max-width: 95vw;
+    padding: 8px;
+    font-size: 1em;
+  }
+  h1 {
+    font-size: 1.3em;
+    padding-bottom: 8px;
+  }
+  #inputs {
+    flex-direction: column;
+    gap: 10px;
+  }
+  #listaContas li {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1em;
+  }
 }

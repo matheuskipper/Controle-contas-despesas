@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     salarioInput.value = salarioSalvo;
   }
   atualizarTotal();
+
   // --- Lógica para carregar as contas salvas ---
   const contasSalvas = JSON.parse(localStorage.getItem("contas"));
 
@@ -140,7 +141,11 @@ btnAdd.addEventListener("click", registrarContas);
 
 
 // * limpar a lista de contas
-function limparCampos() {
+function limparCampos(event) {
+
+  event.preventDefault();
+  let resultado = confirm("Tem certeza que deseja limpar todas as contas?");
+  if (resultado) {
   const listaContas = document.getElementById("listaContas");
   const total = document.getElementById("total");
   const resultContainer = document.querySelector(".result");
@@ -153,10 +158,10 @@ function limparCampos() {
 
   contas = [];
   localStorage.setItem("contas", JSON.stringify(contas));
+  }
 }
 const btnClear = document.getElementById("clear-button");
 btnClear.addEventListener("click", limparCampos);
-
 
 // * Lógica para excluir uma conta individual
 function excluirConta(indexParaExcluir, itemListaParaRemover) {
@@ -210,3 +215,4 @@ function atualizarTotal() {
       numContas + " Conta(s) - Total R$: " + valorTotal.toFixed(2);
   }
 }
+

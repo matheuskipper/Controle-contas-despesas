@@ -31,7 +31,7 @@
     </header>
     <main>
       <div id="salario-toggle-container">
-        <label for="salario-toggle">Deseja incluir seu salário?</label>
+        <label for="salario-toggle" style="margin-right:5px">Deseja incluir seu salário?</label>
         <button id="salario-toggle-nao" class="toggle-btn active">Não</button>
         <button id="salario-toggle-sim" class="toggle-btn">Sim</button>
       </div>
@@ -43,19 +43,19 @@
         <input type="number" id="salarioInput" placeholder="R$" />
       </div>
       <div id="inputs">
-        <p>Descrição da conta:</p>
-        <input
+        <p>Descrição da conta:
+          <input
           type="text"
           id="descricaoConta"
           placeholder="Insira a conta ou despesa"
         />
-
-        <p>Valor:</p>
-        <input type="number" id="valorConta" placeholder="R$" />
-      </div>
-      <div class="buttons">
+        </p>
+        <p>Valor:
+          <input type="number" id="valorConta" placeholder="R$" />
+        </p>
+        
         <button id="add-button">Adicionar</button>
-        <button style="margin-top: 20px" id="clear-button">Limpar</button>
+        <button id="clear-button" onclick="limparCampos()">Limpar</button>
       </div>
       <div class="result">
         <ul id="listaContas"></ul>
